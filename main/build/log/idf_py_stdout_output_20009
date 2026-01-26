@@ -1,0 +1,2 @@
+Command: cmake -G Ninja -B /root/esp/esp-idf/examples/IPS/main/build -DPYTHON_DEPS_CHECKED=1 -DPYTHON=/root/.espressif/python_env/idf6.1_py3.13_env/bin/python -DESP_PLATFORM=1 -DCCACHE_ENABLE=False /root/esp/esp-idf/examples/IPS/main
+-- The C compiler identification is GNU 12.2.0

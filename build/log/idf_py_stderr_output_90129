@@ -1,0 +1,63 @@
+Command: ninja flash
+Traceback (most recent call last):
+  File "/root/.espressif/python_env/idf6.1_py3.13_env/lib/python3.13/site-packages/esptool/__init__.py", line 1140, in _main
+    main()
+    ~~~~^^
+  File "/root/.espressif/python_env/idf6.1_py3.13_env/lib/python3.13/site-packages/esptool/__init__.py", line 1034, in main
+    cli(args=args, esp=esp)
+    ~~~^^^^^^^^^^^^^^^^^^^^
+  File "/root/.espressif/python_env/idf6.1_py3.13_env/lib/python3.13/site-packages/esptool/cli_util.py", line 286, in __call__
+    return super().__call__(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/root/.espressif/python_env/idf6.1_py3.13_env/lib/python3.13/site-packages/rich_click/rich_command.py", line 402, in __call__
+    return super().__call__(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/root/.espressif/python_env/idf6.1_py3.13_env/lib/python3.13/site-packages/click/core.py", line 1485, in __call__
+    return self.main(*args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/root/.espressif/python_env/idf6.1_py3.13_env/lib/python3.13/site-packages/rich_click/rich_command.py", line 216, in main
+    rv = self.invoke(ctx)
+  File "/root/.espressif/python_env/idf6.1_py3.13_env/lib/python3.13/site-packages/click/core.py", line 1873, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+                           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/root/.espressif/python_env/idf6.1_py3.13_env/lib/python3.13/site-packages/click/core.py", line 1269, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.espressif/python_env/idf6.1_py3.13_env/lib/python3.13/site-packages/click/core.py", line 824, in invoke
+    return callback(*args, **kwargs)
+  File "/root/.espressif/python_env/idf6.1_py3.13_env/lib/python3.13/site-packages/click/decorators.py", line 34, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/root/.espressif/python_env/idf6.1_py3.13_env/lib/python3.13/site-packages/esptool/__init__.py", line 690, in write_flash_cli
+    attach_flash(ctx.obj["esp"], kwargs.pop("spi_connection", None))
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.espressif/python_env/idf6.1_py3.13_env/lib/python3.13/site-packages/esptool/cmds.py", line 1130, in attach_flash
+    flash_id = esp.flash_id()
+  File "/root/.espressif/python_env/idf6.1_py3.13_env/lib/python3.13/site-packages/esptool/loader.py", line 1068, in flash_id
+    self.cache["flash_id"] = self.run_spiflash_command(SPIFLASH_RDID, b"", 24)
+                             ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.espressif/python_env/idf6.1_py3.13_env/lib/python3.13/site-packages/esptool/loader.py", line 1634, in run_spiflash_command
+    old_spi_usr = self.read_reg(SPI_USR_REG)
+  File "/root/.espressif/python_env/idf6.1_py3.13_env/lib/python3.13/site-packages/esptool/loader.py", line 899, in read_reg
+    return self.check_command(
+           ~~~~~~~~~~~~~~~~~~^
+        "read target memory", self.ESP_CMDS["READ_REG"], command, timeout=timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/root/.espressif/python_env/idf6.1_py3.13_env/lib/python3.13/site-packages/esptool/loader.py", line 563, in check_command
+    val, data = self.command(op, data, chk, timeout=timeout)
+                ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.espressif/python_env/idf6.1_py3.13_env/lib/python3.13/site-packages/esptool/loader.py", line 493, in command
+    p = self.read()
+  File "/root/.espressif/python_env/idf6.1_py3.13_env/lib/python3.13/site-packages/esptool/loader.py", line 429, in read
+    return next(self._slip_reader)
+StopIteration
+
+A fatal error occurred: The chip stopped responding.
+[31mCMake Error at /root/esp/esp-idf/components/esptool_py/run_serial_tool.cmake:67 (message):
+  
+  /root/.espressif/python_env/idf6.1_py3.13_env/bin/python;-m;esptool;--chip;esp32
+  failed.
+
+
+[0m

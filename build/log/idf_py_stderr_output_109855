@@ -1,0 +1,93 @@
+Command: ninja flash
+Traceback (most recent call last):
+  File "/root/.espressif/python_env/idf6.1_py3.13_env/lib/python3.13/site-packages/esptool/loader.py", line 1120, in get_security_info
+    res = self.check_command(
+        "get security info",
+    ...<2 lines>...
+        resp_data_len=20,
+    )
+  File "/root/.espressif/python_env/idf6.1_py3.13_env/lib/python3.13/site-packages/esptool/loader.py", line 563, in check_command
+    val, data = self.command(op, data, chk, timeout=timeout)
+                ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.espressif/python_env/idf6.1_py3.13_env/lib/python3.13/site-packages/esptool/loader.py", line 493, in command
+    p = self.read()
+  File "/root/.espressif/python_env/idf6.1_py3.13_env/lib/python3.13/site-packages/esptool/loader.py", line 429, in read
+    return next(self._slip_reader)
+  File "/root/.espressif/python_env/idf6.1_py3.13_env/lib/python3.13/site-packages/esptool/loader.py", line 1887, in slip_reader
+    raise FatalError(msg)
+esptool.util.FatalError: Serial data stream stopped: Possible serial noise or corruption.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/.espressif/python_env/idf6.1_py3.13_env/lib/python3.13/site-packages/esptool/__init__.py", line 1140, in _main
+    main()
+    ~~~~^^
+  File "/root/.espressif/python_env/idf6.1_py3.13_env/lib/python3.13/site-packages/esptool/__init__.py", line 1034, in main
+    cli(args=args, esp=esp)
+    ~~~^^^^^^^^^^^^^^^^^^^^
+  File "/root/.espressif/python_env/idf6.1_py3.13_env/lib/python3.13/site-packages/esptool/cli_util.py", line 286, in __call__
+    return super().__call__(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/root/.espressif/python_env/idf6.1_py3.13_env/lib/python3.13/site-packages/rich_click/rich_command.py", line 402, in __call__
+    return super().__call__(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/root/.espressif/python_env/idf6.1_py3.13_env/lib/python3.13/site-packages/click/core.py", line 1485, in __call__
+    return self.main(*args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/root/.espressif/python_env/idf6.1_py3.13_env/lib/python3.13/site-packages/rich_click/rich_command.py", line 216, in main
+    rv = self.invoke(ctx)
+  File "/root/.espressif/python_env/idf6.1_py3.13_env/lib/python3.13/site-packages/click/core.py", line 1873, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+                           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/root/.espressif/python_env/idf6.1_py3.13_env/lib/python3.13/site-packages/click/core.py", line 1269, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.espressif/python_env/idf6.1_py3.13_env/lib/python3.13/site-packages/click/core.py", line 824, in invoke
+    return callback(*args, **kwargs)
+  File "/root/.espressif/python_env/idf6.1_py3.13_env/lib/python3.13/site-packages/click/decorators.py", line 34, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/root/.espressif/python_env/idf6.1_py3.13_env/lib/python3.13/site-packages/esptool/__init__.py", line 689, in write_flash_cli
+    prepare_esp_object(ctx)
+    ~~~~~~~~~~~~~~~~~~^^^^^
+  File "/root/.espressif/python_env/idf6.1_py3.13_env/lib/python3.13/site-packages/esptool/__init__.py", line 471, in prepare_esp_object
+    esp = esp or get_default_connected_device(
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        ser_list,
+        ^^^^^^^^^
+    ...<5 lines>...
+        before=ctx.obj["before"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/root/.espressif/python_env/idf6.1_py3.13_env/lib/python3.13/site-packages/esptool/__init__.py", line 1125, in get_default_connected_device
+    _esp.connect(before, connect_attempts)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.espressif/python_env/idf6.1_py3.13_env/lib/python3.13/site-packages/esptool/loader.py", line 819, in connect
+    chip_id = self.get_chip_id()
+  File "/root/.espressif/python_env/idf6.1_py3.13_env/lib/python3.13/site-packages/esptool/loader.py", line 1151, in get_chip_id
+    chip_id = self.get_security_info()["chip_id"]
+              ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/root/.espressif/python_env/idf6.1_py3.13_env/lib/python3.13/site-packages/esptool/loader.py", line 1129, in get_security_info
+    res = self.check_command(
+        "get security info",
+    ...<2 lines>...
+        resp_data_len=12,
+    )
+  File "/root/.espressif/python_env/idf6.1_py3.13_env/lib/python3.13/site-packages/esptool/loader.py", line 563, in check_command
+    val, data = self.command(op, data, chk, timeout=timeout)
+                ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.espressif/python_env/idf6.1_py3.13_env/lib/python3.13/site-packages/esptool/loader.py", line 493, in command
+    p = self.read()
+  File "/root/.espressif/python_env/idf6.1_py3.13_env/lib/python3.13/site-packages/esptool/loader.py", line 429, in read
+    return next(self._slip_reader)
+StopIteration
+
+A fatal error occurred: The chip stopped responding.
+[31mCMake Error at /root/esp/esp-idf/components/esptool_py/run_serial_tool.cmake:67 (message):
+  
+  /root/.espressif/python_env/idf6.1_py3.13_env/bin/python;-m;esptool;--chip;esp32
+  failed.
+
+
+[0m

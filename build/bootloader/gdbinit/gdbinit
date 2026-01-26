@@ -1,0 +1,2 @@
+source /root/esp/esp-idf/examples/IPS/build/bootloader/gdbinit/symbols
+source /root/esp/esp-idf/examples/IPS/build/bootloader/gdbinit/connect
