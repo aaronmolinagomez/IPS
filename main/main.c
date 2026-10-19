@@ -27,7 +27,7 @@
 
 /* ================= CONFIG ================= */
 #define WIFI_SSID      "ZTE_2.4G_ehTuuE"
-#define WIFI_PASSWORD  "jcmolina1961"
+#define WIFI_PASSWORD  "xxxxxx"
 #define UDP_PORT       12345
 #define WINDOW_SIZE_MS 500
 #define PYTHON_CLOCK_IP "192.168.1.4" // solo para referencia, no se envía
